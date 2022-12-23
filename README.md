@@ -26,7 +26,27 @@ This app allows you to communicate with your Friends & Family. It enables you to
   npm install 
 ```
     
-## Contact 
+## Environment Variables
 
-Gourav143faz@gmail.com
+To run this project, you will need to add the following environment variables to your .env file
+
+`PORT`
+
+`MONGO_URI`
+
+`JWT_SECRET`
+
+
+## Screenshots
+
+![App Screenshot](./img/Screenshot%202022-12-23%20at%204.21.51%20PM.png)
+
+![App Screenshot](./img/Screenshot%202022-12-23%20at%204.22.13%20PM.png)
+
+![App Screenshot](./img/Screenshot%202022-12-23%20at%204.22.21%20PM.png)
+
+
+## Feedback
+
+If you have any feedback, please reach out to us at Gourav143faz@gmail.com
 
