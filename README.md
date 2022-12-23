@@ -22,7 +22,9 @@ This app allows you to communicate with your Friends & Family. It enables you to
 
 ```bash
   git clone https://github.com/TheShenron/Quad-Squad-IV
+
   cd Quad-Squad-IV
+  
   npm install 
 ```
     
