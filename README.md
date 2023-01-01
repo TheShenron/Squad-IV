@@ -1,5 +1,5 @@
 
-# Chatty App
+#  Chatty App
 
 This app allows you to communicate with your Friends & Family. It enables you to send and receive messages and it makes easier, simpler, and faster to connect with everyone.
 
