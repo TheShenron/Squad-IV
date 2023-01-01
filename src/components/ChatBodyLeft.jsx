@@ -29,7 +29,7 @@ export function UserChat({ user, chat, ind, HandleGetChat, selectedChat }) {
             <Avatar src={pic} bg='gray.100' />
             <Box>
                 <Text fontSize={'lg'}>{name}</Text>
-                <Text fontSize={'xs'}><b> {name}</b> {`: ${chat.latestMassage.content}`  }</Text>
+                <Text fontSize={'xs'}><b> {name}</b> {`: ${chat.latestMassage && chat.latestMassage.content}`  }</Text>
             </Box>
         </Flex>
     )
