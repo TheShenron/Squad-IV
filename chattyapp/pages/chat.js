@@ -36,7 +36,7 @@ function chat(props) {
                 return
             }
 
-            axios.get('http://localhost:8080/api/chat/', config)
+            axios.get('https://quadapi.onrender.com/api/chat', config)
                 .then(({ data }) => {
                     dispatch(setMassages(data))
                     setLoading(false)

@@ -13,7 +13,6 @@ export function UserChat({ user, chat, ind, HandleGetChat, selectedChat }) {
 
     const { name, pic } = chat.isGroupChat ? { name: chat.chatName, pic: "" } : getSender(user, chat.users)
 
-
     return (
         <Flex
             cursor={'pointer'}
@@ -30,7 +29,7 @@ export function UserChat({ user, chat, ind, HandleGetChat, selectedChat }) {
             <Avatar src={pic} bg='gray.100' />
             <Box>
                 <Text fontSize={'lg'}>{name}</Text>
-                <Text fontSize={'xs'}><b> {name} </b> : Hii</Text>
+                <Text fontSize={'xs'}><b> {name}</b> {`: ${chat.latestMassage.content}`  }</Text>
             </Box>
         </Flex>
     )

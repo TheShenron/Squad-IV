@@ -50,7 +50,7 @@ function Login(props) {
         setLoding(true)
 
         try {
-            axios.post('http://localhost:8080/api/user/login' , user)
+            axios.post('https://quadapi.onrender.com/api/user/login' , user)
             .then(({data})=>{
                 setLoding(false)
                 localStorage.setItem('userInfo' , JSON.stringify(data))

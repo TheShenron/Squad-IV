@@ -61,7 +61,7 @@ function GroupChat(props) {
                 }
             }
 
-            axios.get('http://localhost:8080/api/user?search=' + event.target.value, config)
+            axios.get('https://quadapi.onrender.com/api/user?search=' + event.target.value, config)
 
                 .then(d => {
                     setUserList(d.data)
@@ -129,7 +129,7 @@ function GroupChat(props) {
                 return el.id
             })
 
-            axios.post('http://localhost:8080/api/chat/group', {
+            axios.post('https://quadapi.onrender.com/api/chat/group', {
                 name,
                 users: JSON.stringify(usersId)
             }, config)

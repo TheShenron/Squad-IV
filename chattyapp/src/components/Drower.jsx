@@ -59,7 +59,7 @@ function Drower(props) {
                 }
             }
 
-            axios.get('http://localhost:8080/api/user?search=' + event.target.value, config)
+            axios.get('https://quadapi.onrender.com/api/user?search=' + event.target.value, config)
 
                 .then(d => {
                     setUserList(d.data)
@@ -90,7 +90,7 @@ function Drower(props) {
                 }
             }
 
-            axios.post('http://localhost:8080/api/chat', { userId: el._id }, config)
+            axios.post('https://quadapi.onrender.com/api/chat', { userId: el._id }, config)
                 .then(({ data }) => {
                     const newData = [ ...massages , data]
                     for (let x = 0; x < massages.length; x++) {

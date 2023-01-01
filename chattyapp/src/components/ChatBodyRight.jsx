@@ -8,7 +8,7 @@ import axios from 'axios';
 import { setChats , setNotification } from '../redux/authReducer/action'
 import io from 'socket.io-client'
 
-const socket = io('http://localhost:8080')
+const socket = io('https://quadapi.onrender.com/')
 var selectedChatComp;
 
 function ChatBodyRight(props) {
@@ -60,7 +60,7 @@ function ChatBodyRight(props) {
                     }
                 }
 
-                axios.post('http://localhost:8080/api/message', {
+                axios.post('https://quadapi.onrender.com/api/message', {
                     content: newMsg,
                     chatId: massages[currentChatInd]._id
                 }, config)
@@ -123,7 +123,7 @@ function ChatBodyRight(props) {
                     }
                 }
 
-                axios.get('http://localhost:8080/api/message/' + massages[currentChatInd]._id, config)
+                axios.get('https://quadapi.onrender.com/api/message/' + massages[currentChatInd]._id, config)
                     .then(({ data }) => {
                         dispatch(setChats(data))
                         // console.log(data)

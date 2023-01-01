@@ -89,7 +89,7 @@ function Signup(props) {
         }
 
         try {
-            axios.post('http://localhost:8080/api/user/register', user )
+            axios.post('https://quadapi.onrender.com/api/user/register', user )
             .then(({data})=>{
                 setLoding(false)
                 localStorage.setItem('userInfo' , JSON.stringify(data))
