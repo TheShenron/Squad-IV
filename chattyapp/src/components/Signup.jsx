@@ -55,7 +55,6 @@ function Signup(props) {
             data.append('file', img)
             data.append('upload_preset', 'chatapp')
             data.append('cloud_name', 'shenron')
-            console.log(data)
             fetch('https://api.cloudinary.com/v1_1/shenron/image/upload', {
                 method: 'post',
                 body: data

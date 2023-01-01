@@ -5,7 +5,7 @@ import Messages from './Messages';
 import Previous from './Previous';
 import { useSelector, useDispatch } from 'react-redux'
 import axios from 'axios';
-import { setChats } from '../redux/authReducer/action'
+import { setChats , setNotification } from '../redux/authReducer/action'
 import io from 'socket.io-client'
 
 const socket = io('http://localhost:8080')
@@ -15,7 +15,7 @@ function ChatBodyRight(props) {
 
     const dispatch = useDispatch()
 
-    const { user, currentChatInd, massages, chats } = useSelector(state => state.AuthReducer)
+    const { user, currentChatInd, massages, chats , notification } = useSelector(state => state.AuthReducer)
 
     const [newMsg, setNewMsg] = useState('')
 
@@ -29,19 +29,22 @@ function ChatBodyRight(props) {
     useEffect(() => {
         socket.on('message-receved', (newRecevedMessage) => {
 
-            console.log(newRecevedMessage, "Msg receved")
+            // console.log(newRecevedMessage, "Msg receved")
 
             if (
                 !selectedChatComp ||
                 selectedChatComp._id !== newRecevedMessage.chat._id
             ) {
                 //give notification
+                if( !notification.includes(newRecevedMessage)){
+                    dispatch( setNotification([newRecevedMessage , ...notification]) )
+                }
+
             } else {
                 dispatch(setChats([...chats, newRecevedMessage]))
             }
         })
     })
-
 
     const HandleGetMsg = (event) => {
         if (event.key == 'Enter' && newMsg) {
@@ -64,7 +67,6 @@ function ChatBodyRight(props) {
                     .then(({ data }) => {
                         setNewMsg('')
                         chats.push(data)
-                        console.log(data)
                         socket.emit('new-message', data)
                     })
                     .catch(err => {
@@ -79,8 +81,7 @@ function ChatBodyRight(props) {
 
     const HandleSetMsg = (e) => {
         setNewMsg(e.target.value)
-        console.log(e.target.value)
-        console.log(socketConnected)
+    
         if (!socketConnected) return
 
         if (!typing) {
@@ -89,7 +90,7 @@ function ChatBodyRight(props) {
         }
 
         let lastTypingTime = new Date().getTime()
-        var timerLen = 3000;
+        var timerLen = 2000;
 
         setTimeout(() => {
             var timeNow = new Date().getTime()
@@ -157,13 +158,11 @@ function ChatBodyRight(props) {
         socket.on('stop-typing', () => setIsTyping(false))
 
         socket.on('connection', () => {
-            console.log("Wow")
+            console.log("connected to socket!")
         })
 
 
     }, [])
-
-    console.log(isTyping)
 
     return (
         <Box position={'relative'} w={['100%', '100%', '70%', '70%']} bg='white'>
@@ -214,7 +213,7 @@ function ChatBodyRight(props) {
 
                     <Box position='absolute' bottom={'0'} w='100%' p='10px'>
                         <FormControl isRequired onKeyDown={HandleGetMsg}>
-                            {isTyping ? "Loading..." : <></>}
+                            {isTyping ? "Typing..." : <></>}
                             <Input
                                 placeholder="Send Message.."
                                 size="md"

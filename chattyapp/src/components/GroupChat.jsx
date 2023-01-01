@@ -138,7 +138,6 @@ function GroupChat(props) {
                     dispatch(setMassages([data , ...massages]))
                     setLoading(false)
                     onClose()
-                    console.log(data)
 
                 })
                 .catch(err => {

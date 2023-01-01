@@ -41,3 +41,10 @@ export const setMassages = (payload) =>{
         payload
     }
 }
+
+export const setNotification = (payload) =>{
+    return {
+        type: types.NOTIFICATION,
+        payload
+    }
+}

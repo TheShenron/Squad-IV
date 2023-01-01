@@ -1,4 +1,3 @@
-import { loginRequest, loginSuccess, loginFailure } from './action'
 
 import * as types from './actionType'
 
@@ -8,6 +7,7 @@ const initialState = {
     chats: [],
     currentChatInd: -1,
     massages: [],
+    notification: []
 }
 
 export const reducer = (state = initialState, action) => {
@@ -41,6 +41,12 @@ export const reducer = (state = initialState, action) => {
             return {
                 ...state,
                 massages: action.payload
+            }
+
+        case types.NOTIFICATION:
+            return {
+                ...state,
+                notification: action.payload
             }
 
         default:

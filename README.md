@@ -1,5 +1,5 @@
 
-# Masai Chat App
+# Chatty App
 
 This app allows you to communicate with your Friends & Family. It enables you to send and receive messages and it makes easier, simpler, and faster to connect with everyone.
 
@@ -41,11 +41,19 @@ To run this project, you will need to add the following environment variables to
 
 ## Screenshots
 
-![App Screenshot](./img/Screenshot%202022-12-23%20at%204.21.51%20PM.png)
+![App Screenshot](./img/Screenshot%202023-01-01%20at%2011.43.31%20AM.png)
 
-![App Screenshot](./img/Screenshot%202022-12-23%20at%204.22.13%20PM.png)
+![App Screenshot](./img/Screenshot%202023-01-01%20at%2011.43.45%20AM.png)
 
-![App Screenshot](./img/Screenshot%202022-12-23%20at%204.22.21%20PM.png)
+![App Screenshot](./img/Screenshot%202023-01-01%20at%2011.44.02%20AM.png)
+
+![App Screenshot](./img/Screenshot%202023-01-01%20at%2011.46.22%20AM.png)
+
+![App Screenshot](./img/Screenshot%202023-01-01%20at%2011.47.19%20AM.png)
+
+![App Screenshot](./img/Screenshot%202023-01-01%20at%2011.47.48%20AM.png)
+
+
 
 
 ## Feedback

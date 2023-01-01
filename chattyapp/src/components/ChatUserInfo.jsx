@@ -53,7 +53,6 @@ function ChatUserInfo(props) {
                         return ind != currentChatInd
                     })
                     // console.log(data)
-                    console.log(newList)
                     dispatch(setMassages(newList))
                     onClose()
                 })

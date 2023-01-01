@@ -3,9 +3,33 @@ import { AlertDialog, AlertDialogBody, AlertDialogContent, AlertDialogFooter, Al
 import React, { useRef } from 'react';
 
 import { FcSms } from 'react-icons/fc'
+import { useSelector, useDispatch} from 'react-redux'
+import { getSender } from '../../config/getSender'
+import { chatIndex , setNotification } from '../redux/authReducer/action'
+
+function retInd (chats , notf){
+   
+    let ind = -1
+    for(let x = 0 ; x < chats.length ; x++){
+        
+        if(chats[x]._id === notf.chat._id){  
+           
+            ind = x
+            break;
+        }
+    }
+
+    return ind
+
+}
+
 
 function MassagePop(props) {
 
+    const dispatch = useDispatch()
+
+    const { user , massages , currentChatInd ,  notification } = useSelector(state => state.AuthReducer)
+    
     const { isOpen, onOpen, onClose } = useDisclosure()
     const cancelRef = useRef()
 
@@ -13,7 +37,7 @@ function MassagePop(props) {
         <>
 
             <Flex alignItems={'center'}>
-                <Badge position={'relative'} bottom='10px' left={'10px'} colorScheme='red'>1</Badge>
+                <Badge position={'relative'} bottom='10px' left={'10px'} colorScheme='red'>{notification.length}</Badge>
                 <Icon as={FcSms} onClick={onOpen} fontSize='25px' cursor='pointer' />
             </Flex>
 
@@ -25,11 +49,25 @@ function MassagePop(props) {
                 <AlertDialogOverlay>
                     <AlertDialogContent>
                         <AlertDialogHeader fontSize='lg' fontWeight='bold'>
-                            Delete Customer
+                            Notification:-
                         </AlertDialogHeader>
-
                         <AlertDialogBody>
-                            Are you sure? You can't undo this action afterwards.
+                            {notification.length == 0 ? "No New Notification" : (
+                                notification.map((notiff, ind) => {
+                                    
+                                    return <Box cursor='pointer' key={ind+"MSG"} onClick={() => {
+                                        let newInd = retInd(massages , notiff)
+                                        dispatch(chatIndex(newInd))
+                                        notification.splice(ind,1)
+                                        dispatch(setNotification(notification))
+                                        onClose()
+                                    }}>
+                                        {notiff.chat.isGroupChat ? `New Message from ${notiff.chat.chatName}` :
+                                            `New Message from ${getSender(user, notiff.chat.users).name}`}
+                                    </Box>
+                                })
+                            )}
+
                         </AlertDialogBody>
 
                         <AlertDialogFooter>

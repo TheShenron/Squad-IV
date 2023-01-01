@@ -4,3 +4,4 @@ export const LOGIN_FAILURE = "LOGIN_FAILURE"
 export const CHAT = 'CHAT'
 export const INDEX = "INDEX"
 export const MASSAGES = "MASSAGES"
+export const NOTIFICATION = "NOTIFICATION"
