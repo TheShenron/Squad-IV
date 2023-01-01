@@ -80,4 +80,10 @@ io.on('connection' , (socket)=>{
         })
     })
 
+
+    socket.off("setup" , ()=>{
+        console.log("user Disconected")
+        socket.leave(userData._id);
+    })
+
 })

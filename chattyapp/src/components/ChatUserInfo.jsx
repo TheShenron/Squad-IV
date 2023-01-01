@@ -44,7 +44,7 @@ function ChatUserInfo(props) {
                 }
             }
 
-            axios.put('http://localhost:8080/api/chat/groupremove', { 
+            axios.put('https://quadapi.onrender.com/api/chat/groupremove', { 
                 chatId : massages[currentChatInd]._id,
                 userId: user._id
              }, config)
