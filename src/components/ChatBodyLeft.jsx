@@ -12,7 +12,7 @@ export function UserChat({ user, chat, ind, HandleGetChat, selectedChat }) {
 
 
     const { name, pic } = chat.isGroupChat ? { name: chat.chatName, pic: "" } : getSender(user, chat.users)
-    console.log(chat.latestMassage.sender.name)
+    // console.log(chat.latestMassage.sender.name)
     return (
         <Flex
             cursor={'pointer'}
